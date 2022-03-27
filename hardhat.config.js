@@ -24,4 +24,5 @@ module.exports = {
       url: process.env.YOUR_ALCHEMY_API_URL,
       accounts: [process.env.YOUR_PRIVATE_RINKEBY_ACCOUNT_KEY]
     },
-};
+  }
+}
