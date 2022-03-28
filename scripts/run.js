@@ -10,13 +10,15 @@ const main = async () => {
     let tweetCount
     tweetCount = await tweetContract.getTotalTweets()
 
-    let tweetTxn = await tweetContract.tweet()
+    let tweetTxn = await tweetContract.tweet('Hello, tweet')
     await tweetTxn.wait()
 
-    tweetTxn = await tweetContract.connect(randomPerson).tweet()
+    tweetTxn = await tweetContract.connect(randomPerson).tweet('Nope, no thakns')
     await tweetTxn.wait()
 
     tweetCount = await tweetContract.getTotalTweets()
+    let tweetTotal = await tweetContract.getAllTweets()
+    console.log(tweetTotal)
 }
 
 const runMain = async () => {
