@@ -6,7 +6,9 @@ main = async () => {
     console.log('Account balance: ', accountBalance.toString())
 
     const tweetContractFactory = await hre.ethers.getContractFactory('TweetPortal')
-    const tweetContract = await tweetContractFactory.deploy()
+    const tweetContract = await tweetContractFactory.deploy({
+        value: hre.ethers.utils.parseEther("0.001"),
+    })
     await tweetContract.deployed()
 
     console.log('TweetPortal address: ', tweetContract.address)
